@@ -225,6 +225,7 @@
             this.Collecting.TabIndex = 19;
             this.Collecting.Text = "Waiting";
             this.Collecting.UseVisualStyleBackColor = true;
+            this.Collecting.CheckedChanged += new System.EventHandler(this.Collecting_CheckedChanged);
             // 
             // label7
             // 
