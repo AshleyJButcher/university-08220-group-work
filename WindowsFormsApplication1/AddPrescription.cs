@@ -146,6 +146,15 @@ namespace WindowsFormsApplication1
             }
             else
             {
+                bool allitemsinstock = true;
+                for (int i = 0; i < ItemView.Items.Count; i++)
+                {
+                    string quan = DodgyBobStockControl.StockControl.ASK("'" + ItemView.Items[i].SubItems[0].Text + "' stockcheck please");
+                    quan = quan.Substring(8);// Gets rid of "We Have "
+                    string[] tempvalues = quan.Split(' '); //Splits the string at " "'s
+                    quan = tempvalues[0]; //Gets the values before the space
+                }
+
                 Prescription TempPrescriptionClass = new Prescription(txtPatientName.Text);
                 TempPrescriptionClass.SetDoctorName(DoctorsCombo.Text);
                 TempPrescriptionClass.SetInstructions(txtInstructions.Text);

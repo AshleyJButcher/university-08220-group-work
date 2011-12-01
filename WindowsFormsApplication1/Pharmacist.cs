@@ -252,22 +252,24 @@ namespace WindowsFormsApplication1
             
             listView1.Clear();
             SetupListview();
-            Prescription loadprescript = ToDoPrescriptList[PrescriptionList.SelectedIndex];
-            for (int totalitems = 0; totalitems < loadprescript.ItemName.Count; totalitems++ )
+            if (PrescriptionList.SelectedIndex > -1)
             {
-                listviewitem = new ListViewItem(loadprescript.ItemName[totalitems]);
-                listviewitem.SubItems.Add(loadprescript.Quantity[totalitems]);
-                string price = DodgyBobStockControl.StockControl.ASK("'" + loadprescript.ItemName[totalitems] + "' cost please");
-                listviewitem.SubItems.Add(price);
-                string expiry = DodgyBobStockControl.StockControl.ASK("'" + loadprescript.ItemName[totalitems] + "' expiry please");
-                listviewitem.SubItems.Add(expiry);
-                PatientName = loadprescript.GetPatientName(); //These are used later on for saving completed prescriptions
-                DoctorName = loadprescript.GetDoctorName();  //**
-                this.listView1.Items.Add(listviewitem);
+                Prescription loadprescript = ToDoPrescriptList[PrescriptionList.SelectedIndex];
+                for (int totalitems = 0; totalitems < loadprescript.ItemName.Count; totalitems++)
+                {
+                    listviewitem = new ListViewItem(loadprescript.ItemName[totalitems]);
+                    listviewitem.SubItems.Add(loadprescript.Quantity[totalitems]);
+                    string price = DodgyBobStockControl.StockControl.ASK("'" + loadprescript.ItemName[totalitems] + "' cost please");
+                    listviewitem.SubItems.Add(price);
+                    string expiry = DodgyBobStockControl.StockControl.ASK("'" + loadprescript.ItemName[totalitems] + "' expiry please");
+                    listviewitem.SubItems.Add(expiry);
+                    PatientName = loadprescript.GetPatientName(); //These are used later on for saving completed prescriptions
+                    DoctorName = loadprescript.GetDoctorName();  //**
+                    this.listView1.Items.Add(listviewitem);
+                }
+                UpdateColumnSize();
+                txtInstructions.Text = loadprescript.GetInstruction();
             }
-            UpdateColumnSize();
-            txtInstructions.Text = loadprescript.GetInstruction();
-
         }
 
         public void UpdateColumnSize()
@@ -295,7 +297,7 @@ namespace WindowsFormsApplication1
                     #endregion
                     DodgyBobStockControl.StockControl.DO("'" + listView1.Items[i].Text + "' consume " + quantity + " please");
                 }
-
+                DodgyBobStockControl.StockControl.SAVE(); //Saves the stock update
                 #region Saving the data to a class
                 Prescription tempprescrip = new Prescription(PatientName);
                 if (Collecting.Checked == true)
