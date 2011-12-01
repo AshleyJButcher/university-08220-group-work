@@ -19,8 +19,7 @@ namespace WindowsFormsApplication1
         private void StockControl_Load(object sender, EventArgs e)
         {
             DodgyBobStockControl.StockControl.INITIALISE();//SureHealthItems.txt");
-            bool loaded = DodgyBobStockControl.StockControl.LOAD();
-            MessageBox.Show(loaded + "");
+            DodgyBobStockControl.StockControl.LOAD();
 
             string[] itemnames = DodgyBobStockControl.StockControl.GET_ITEMS();
             for (int i = 0; i < itemnames.Length; i++)
@@ -55,7 +54,7 @@ namespace WindowsFormsApplication1
                 int quantityvalue = int.Parse(quantity);
                 quantityvalue++;
                 ItemsListView.SelectedItems[0].SubItems[1].Text = quantityvalue.ToString();
-                DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0] + "' return 1 please");
+                DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0].Text + "' return 1 please");
                 if (DodgyBobStockControl.StockControl.SAVE() == true)
                     MessageBox.Show("Saved");
             }
@@ -69,7 +68,7 @@ namespace WindowsFormsApplication1
                 int quantityvalue = int.Parse(quantity);
                 quantityvalue--;
                 ItemsListView.SelectedItems[0].SubItems[1].Text = quantityvalue.ToString();
-                DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0] + "' consume 1 please");
+                DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0].Text + "' consume 1 please");
                 if (DodgyBobStockControl.StockControl.SAVE() == true)
                     MessageBox.Show("Saved");
             }
@@ -87,8 +86,12 @@ namespace WindowsFormsApplication1
                     quantity2 = int.Parse(quantitystring);
                     quantityvalue = int.Parse(txtAmount.Text);
                     quantity2 += quantityvalue;
-                    ItemsListView.SelectedItems[0].SubItems[1].Text = quantityvalue.ToString();
-                    DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0] + "' restock " + quantityvalue + " please");
+                    ItemsListView.SelectedItems[0].SubItems[1].Text = quantityvalue.ToString(); //update the listview with the new quantity
+                    string olddate = ItemsListView.SelectedItems[0].SubItems[3].Text.Substring(0,6); //gets the orginal day and month
+                    int oldyear =  int.Parse(ItemsListView.SelectedItems[0].SubItems[3].Text.Substring(6)); //get the orginal year
+                    oldyear++; //increments year
+                    ItemsListView.SelectedItems[0].SubItems[3].Text = olddate + oldyear.ToString(); //Updates the use by dte box date
+                    DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0].Text + "' restock " + quantityvalue + " please");
                     if (DodgyBobStockControl.StockControl.SAVE() == true)
                         MessageBox.Show("Saved");
                 }
