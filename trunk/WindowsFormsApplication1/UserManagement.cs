@@ -61,26 +61,38 @@ namespace WindowsFormsApplication1
         {
             if(txtUsername.Text != "" && txtPassword.Text != "" && UserTypeCombo.Text != "")
             {
-                Users tempuserclass = new Users(txtUsername.Text,txtPassword.Text);
-                ListHolder.Usertype tempusertype;
-                tempusertype = ListHolder.Usertype.Cashier; //Default Value
-                switch(UserTypeCombo.Text)
+                bool UniqueUsername = true;
+                for (int i = 0; i < UserListView.Items.Count; i++)
                 {
-                    case "Administrator":
-                        tempusertype = ListHolder.Usertype.Administrator;
-                        break;
-                    case "Pharmacist":
-                        tempusertype = ListHolder.Usertype.Pharmacist;
-                        break;
-                    case "Cashier":
-                        tempusertype = ListHolder.Usertype.Cashier;
-                        break;
+                    if (UserListView.Items[i].Text == txtUsername.Text)
+                    {
+                        UniqueUsername = false;
+                        MessageBox.Show("Username Already Exists");
+                    }
                 }
-                tempuserclass.pJobtype = tempusertype;
-                users.UserList.Add(tempuserclass); //Adds the New User
+                if (UniqueUsername)
+                {
+                    Users tempuserclass = new Users(txtUsername.Text, txtPassword.Text);
+                    ListHolder.Usertype tempusertype;
+                    tempusertype = ListHolder.Usertype.Cashier; //Default Value
+                    switch (UserTypeCombo.Text)
+                    {
+                        case "Administrator":
+                            tempusertype = ListHolder.Usertype.Administrator;
+                            break;
+                        case "Pharmacist":
+                            tempusertype = ListHolder.Usertype.Pharmacist;
+                            break;
+                        case "Cashier":
+                            tempusertype = ListHolder.Usertype.Cashier;
+                            break;
+                    }
+                    tempuserclass.pJobtype = tempusertype;
+                    users.UserList.Add(tempuserclass); //Adds the New User
 
-                PopulateListView();
-                WriteUsers();
+                    PopulateListView();
+                    WriteUsers();
+                }
             }
         }
 
