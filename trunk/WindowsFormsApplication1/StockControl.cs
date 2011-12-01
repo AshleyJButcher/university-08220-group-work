@@ -18,8 +18,9 @@ namespace WindowsFormsApplication1
 
         private void StockControl_Load(object sender, EventArgs e)
         {
-            DodgyBobStockControl.StockControl.INITIALISE("dodgystock.dat");//SureHealthItems.txt");
-            DodgyBobStockControl.StockControl.LOAD();
+            DodgyBobStockControl.StockControl.INITIALISE();//SureHealthItems.txt");
+            bool loaded = DodgyBobStockControl.StockControl.LOAD();
+            MessageBox.Show(loaded + "");
 
             string[] itemnames = DodgyBobStockControl.StockControl.GET_ITEMS();
             for (int i = 0; i < itemnames.Length; i++)
