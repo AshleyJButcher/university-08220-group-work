@@ -46,8 +46,7 @@ namespace WindowsFormsApplication1
 
 
             #region Add Items to Listview
-            DodgyBobStockControl.StockControl.INITIALISE("SureHealthItems.txt");
-            DodgyBobStockControl.StockControl.LOAD();
+            prescriptions.Initialise();
             string[] Items = DodgyBobStockControl.StockControl.GET_ITEMS();
             int Counter = 0;
             foreach (string name in Items)
