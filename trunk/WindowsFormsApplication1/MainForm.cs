@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
 
         private void StockControl_Click(object sender, EventArgs e)
         {
-            StockControl stockcontrol = new StockControl();
+            StockControl stockcontrol = new StockControl(parentlistholder);
             stockcontrol.Show();
         }
 

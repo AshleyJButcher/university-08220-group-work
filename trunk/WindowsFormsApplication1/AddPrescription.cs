@@ -13,12 +13,13 @@ namespace WindowsFormsApplication1
 {
     public partial class AddPrescription : Form
     {
-        ListHolder parentlistholder;
+        ListHolder parentlistholder; //Parent List Holder
+        List<Prescription> PrescriptList = new List<Prescription>();
         public AddPrescription(ListHolder holder)
         {
             InitializeComponent();
-            DodgyBobStockControl.StockControl.INITIALISE("SureHealthItems.txt");
             parentlistholder = holder;
+            parentlistholder.Initialise();
             // Create some column headers for the data. 
             columnheader = new ColumnHeader();
             columnheader.Text = "Item Name";
@@ -42,7 +43,9 @@ namespace WindowsFormsApplication1
             ItemCombo.Items.AddRange(DodgyBobStockControl.StockControl.GET_ITEMS());
             RemoveOutOfDateItems();
         }
-
+        /// <summary>
+        /// Updates the Doctor Drop Down with all of the Doctors
+        /// </summary>
         private void UpdateDoctorCombo()
         {
             //Add Doctors to the Combo Box
@@ -55,7 +58,9 @@ namespace WindowsFormsApplication1
                 DoctorsCombo.Items.Add(node.InnerText);
             }
         }
-
+        /// <summary>
+        /// Removes Out of Date Items from the Items Drop Down
+        /// </summary>
         public void RemoveOutOfDateItems()
         {
             int currentday = DateTime.Now.Date.Day;
@@ -125,7 +130,11 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
+        /// <summary>
+        /// Saves New Prescription File, Updates Stock and Cleans For a New Prescription
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Save_Click(object sender, EventArgs e)
         {
             if (txtPatientName.Text.Equals(""))
@@ -152,28 +161,38 @@ namespace WindowsFormsApplication1
                     string quan = DodgyBobStockControl.StockControl.ASK("'" + ItemView.Items[i].SubItems[0].Text + "' stockcheck please");
                     quan = quan.Substring(8);// Gets rid of "We Have "
                     string[] tempvalues = quan.Split(' '); //Splits the string at " "'s
-                    quan = tempvalues[0]; //Gets the values before the space
+                    int quaninstock = int.Parse(tempvalues[0]); //Gets the values before the space
+                    int quantocheck = int.Parse(ItemView.Items[i].SubItems[1].Text);
+                    if (quaninstock < quantocheck)
+                    {
+                        MessageBox.Show("Pharmacy has not got enough items in stock");
+                        allitemsinstock = false;
+                    }
                 }
-
-                Prescription TempPrescriptionClass = new Prescription(txtPatientName.Text);
-                TempPrescriptionClass.SetDoctorName(DoctorsCombo.Text);
-                TempPrescriptionClass.SetInstructions(txtInstructions.Text);
-                for (int i = 0; i < ItemView.Items.Count; i++)
+                if (allitemsinstock)
                 {
-                    TempPrescriptionClass.AddItemNameList(ItemView.Items[i].SubItems[0].Text);
-                    TempPrescriptionClass.AddQuantity(ItemView.Items[i].SubItems[1].Text);
+                    Prescription TempPrescriptionClass = new Prescription(txtPatientName.Text);
+                    TempPrescriptionClass.SetDoctorName(DoctorsCombo.Text);
+                    TempPrescriptionClass.SetInstructions(txtInstructions.Text);
+                    for (int i = 0; i < ItemView.Items.Count; i++)
+                    {
+                        TempPrescriptionClass.AddItemNameList(ItemView.Items[i].SubItems[0].Text);
+                        TempPrescriptionClass.AddQuantity(ItemView.Items[i].SubItems[1].Text);
+                    }
+                    PrescriptList.Add(TempPrescriptionClass);
+                    if (File.Exists("Prescription.xml") == true)
+                        ReadOldFile();
+                    WritePrescription();
+                    MessageBox.Show("Prescription Saved");
                 }
-                PrescriptList.Add(TempPrescriptionClass);
-                if (File.Exists("Prescription.xml") == true)
-                    ReadOldFile();
-                WritePrescription(PrescriptList.Count);
-                MessageBox.Show("Prescription Saved");
             }
             
         }
         
-        List<Prescription> PrescriptList = new List<Prescription>();
 
+        /// <summary>
+        /// Reads the Prescription Files and Loads them into classes
+        /// </summary>
         public void ReadOldFile() {
             XmlDocument PrescriptionFile;
             PrescriptionFile = new XmlDocument();
@@ -200,8 +219,10 @@ namespace WindowsFormsApplication1
                 PrescriptList.Add(CurrentPrescript);
             }
         }
-
-        public void WritePrescription(int amount)
+        /// <summary>
+        /// Writes the Prescription XML file
+        /// </summary>
+        public void WritePrescription()
         {
             XmlWriterSettings set = new XmlWriterSettings();
             set.Indent = true;
@@ -213,7 +234,7 @@ namespace WindowsFormsApplication1
                     writer.WriteStartElement("Prescriptions");
                     foreach (Prescription node in PrescriptList)
                     {
-                        amount = 0;
+                       int amount = 0;
                         writer.WriteStartElement("Prescription");
                         writer.WriteElementString("Name", node.GetPatientName());
                         writer.WriteElementString("Doctor", node.GetDoctorName());
@@ -233,18 +254,30 @@ namespace WindowsFormsApplication1
                 writer.WriteEndDocument();
             }
         }
-
+        /// <summary>
+        /// Add New Doctor Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddDoctor_Click(object sender, EventArgs e)
         {
             AddDoctor adddoc = new AddDoctor(parentlistholder);
             adddoc.Show();
         }
-
+        /// <summary>
+        /// Clears all the Items from the list view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clear_Click(object sender, EventArgs e)
         {
             ItemView.Items.Clear();
         }
-
+        /// <summary>
+        /// Remove Items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveItem_Click(object sender, EventArgs e)
         {
                 if (ItemView.SelectedItems.Count > 0) //if no item is selected
@@ -262,12 +295,20 @@ namespace WindowsFormsApplication1
 
                 } 
         }
-
+        /// <summary>
+        /// Close the Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// When the Doctor Dropdown is clicked, it automatically reads in the doctors, to fix the add new doctor form bug
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DoctorsCombo_Click(object sender, EventArgs e)
         {
             UpdateDoctorCombo();

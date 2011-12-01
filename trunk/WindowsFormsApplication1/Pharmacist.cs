@@ -26,10 +26,9 @@ namespace WindowsFormsApplication1
         public Pharmacist(ListHolder listhold)
         {
             InitializeComponent();
-            DodgyBobStockControl.StockControl.INITIALISE("SureHealthItems.txt"); //Load In Sure Health Stock Control
-            DodgyBobStockControl.StockControl.LOAD(); 
             SetupListview(); //Adds Headers to ListView
             ParentListHolder = listhold;
+            ParentListHolder.Initialise();
         }
 
         public void SetupListview()

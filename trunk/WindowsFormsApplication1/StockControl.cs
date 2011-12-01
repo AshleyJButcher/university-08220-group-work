@@ -11,16 +11,16 @@ namespace WindowsFormsApplication1
 {
     public partial class StockControl : Form
     {
-        public StockControl()
+        ListHolder parentlistholder;
+        public StockControl(ListHolder hold)
         {
             InitializeComponent();
+            parentlistholder = hold;
         }
 
         private void StockControl_Load(object sender, EventArgs e)
         {
-            DodgyBobStockControl.StockControl.INITIALISE();//SureHealthItems.txt");
-            DodgyBobStockControl.StockControl.LOAD();
-
+            parentlistholder.Initialise();
             string[] itemnames = DodgyBobStockControl.StockControl.GET_ITEMS();
             for (int i = 0; i < itemnames.Length; i++)
             {
