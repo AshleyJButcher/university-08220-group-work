@@ -271,7 +271,14 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Clear_Click(object sender, EventArgs e)
         {
-            ItemView.Items.Clear();
+            if (ItemView.Items.Count > 0) //if no item is selected
+            {
+                ItemView.Items.Clear();
+            }
+            else
+            {
+                MessageBox.Show("There are No Items to be Removed!");
+            }
         }
         /// <summary>
         /// Remove Items
@@ -293,7 +300,11 @@ namespace WindowsFormsApplication1
                         ItemView.Items.Remove(ItemView.SelectedItems[0]);
                     }
 
-                } 
+                }
+                else
+                {
+                    MessageBox.Show("You Have Not Selected Anything!");
+                }
         }
         /// <summary>
         /// Close the Form

@@ -42,19 +42,26 @@ namespace WindowsFormsApplication1
 
         private void Remove_Click(object sender, EventArgs e)
         {
-            string username = UserListView.SelectedItems[0].SubItems[0].Text;
-            string password = UserListView.SelectedItems[0].SubItems[1].Text;
-            string type = UserListView.SelectedItems[0].SubItems[2].Text;
-            foreach (Users node in users.UserList)
+            if (UserListView.SelectedItems.Count > 0)
             {
-                if (node.GetUsername() == username && node.GetPassword() == password && node.GetUserStatus().ToString() == type)
+                string username = UserListView.SelectedItems[0].SubItems[0].Text;
+                string password = UserListView.SelectedItems[0].SubItems[1].Text;
+                string type = UserListView.SelectedItems[0].SubItems[2].Text;
+                foreach (Users node in users.UserList)
                 {
-                    users.UserList.Remove(node); //Remove User from class list so it wont get written to a file
-                    break;
+                    if (node.GetUsername() == username && node.GetPassword() == password && node.GetUserStatus().ToString() == type)
+                    {
+                        users.UserList.Remove(node); //Remove User from class list so it wont get written to a file
+                        break;
+                    }
                 }
+                UserListView.Items.Remove(UserListView.SelectedItems[0]); //Removes From View
+                WriteUsers();
             }
-            UserListView.Items.Remove(UserListView.SelectedItems[0]); //Removes From View
-            WriteUsers();
+            else
+            {
+                MessageBox.Show("Nothing Selected");
+            }
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -93,6 +100,10 @@ namespace WindowsFormsApplication1
                     PopulateListView();
                     WriteUsers();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Not All the Fields Contain Data");
             }
         }
 

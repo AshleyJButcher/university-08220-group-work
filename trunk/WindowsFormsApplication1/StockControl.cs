@@ -58,6 +58,10 @@ namespace WindowsFormsApplication1
                 if (DodgyBobStockControl.StockControl.SAVE() == true)
                     MessageBox.Show("Saved");
             }
+            else
+            {
+                MessageBox.Show("Nothing Selected!");
+            }
         }
 
         private void DecreaseQuan_Click(object sender, EventArgs e)
@@ -71,6 +75,10 @@ namespace WindowsFormsApplication1
                 DodgyBobStockControl.StockControl.DO("'" + ItemsListView.SelectedItems[0].Text + "' consume 1 please");
                 if (DodgyBobStockControl.StockControl.SAVE() == true)
                     MessageBox.Show("Saved");
+            }
+            else
+            {
+                MessageBox.Show("Nothing Selected!");
             }
 
         }

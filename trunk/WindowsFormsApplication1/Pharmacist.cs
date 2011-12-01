@@ -235,14 +235,28 @@ namespace WindowsFormsApplication1
         #region Prescription Certificates
         private void FixedPrice_Click(object sender, EventArgs e)
         {
-            Price = 7.5;
-            MessageBox.Show("Patient will pay a fixed price of £7.50");
+            if (listView1.SelectedItems.Count < 0)
+            {
+                MessageBox.Show("Must Select a Prescription First");
+            }
+            else
+            {
+                Price = 7.5;
+                MessageBox.Show("Patient will pay a fixed price of £7.50");
+            }
         }
 
         private void Free_Click(object sender, EventArgs e)
         {
-            Price = 0.0;
-            MessageBox.Show("Patient will Not pay for this prescription");
+            if (listView1.SelectedItems.Count < 0)
+            {
+                MessageBox.Show("Must Select a Prescription First");
+            }
+            else
+            {
+                Price = 0.0;
+                MessageBox.Show("Patient will Not pay for this prescription");
+            }
         }
         #endregion
         
@@ -353,6 +367,10 @@ namespace WindowsFormsApplication1
                 ToPay Newform = new ToPay("£" + string.Format("{0:0.00}", TotalPrice)); //formats the price with two decimal places
                 Newform.Show();
             }
+            else
+            {
+                MessageBox.Show("No Prescription Selected");
+            }
         }
 
         #region  Prescriptions To Collect
@@ -372,7 +390,7 @@ namespace WindowsFormsApplication1
 
         private void Collected_Click(object sender, EventArgs e)
         {
-            if (PrescriptionToCollect.Items.Count > 0)
+            if (PrescriptionToCollect.SelectedItems.Count > 0)
             {
                 string[] tempvalues = PrescriptionToCollect.SelectedItem.ToString().Split((":").ToCharArray());
                 foreach (Prescription node in ParentListHolder.FinalPrescriptionList)
@@ -385,6 +403,10 @@ namespace WindowsFormsApplication1
                         UpdatePrescriptionsToCollect();
                     }
                 }
+            }
+            else 
+            {
+                MessageBox.Show("No Prescription Selected");
             }
         }
 
@@ -400,6 +422,15 @@ namespace WindowsFormsApplication1
         private void Close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Collecting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count < 0)
+            {
+                Collecting.Checked = false;
+                MessageBox.Show("Must Select a Prescription First");
+            }
         }
     }
 }
