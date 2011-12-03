@@ -16,16 +16,17 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             parentlistholder = mainlist;
-            if (usertype == ListHolder.Usertype.Cashier)
+            if (usertype == ListHolder.Usertype.Cashier) //If User is a Cashier
             {
-                AddPrescription.Enabled = true;
+                AddPrescription.Enabled = true; //they can use the add prescription form
             }
-            else if (usertype == ListHolder.Usertype.Pharmacist)
+            else if (usertype == ListHolder.Usertype.Pharmacist)  //If User is a Pharmacist
             {
-                ProcessPrescription.Enabled = true;
+                ProcessPrescription.Enabled = true; //they can use the process prescription form
             }
-            else if (usertype == ListHolder.Usertype.Administrator)
+            else if (usertype == ListHolder.Usertype.Administrator)  //If User is a Admin
             {
+                //Administrators can use everything
                 ProcessPrescription.Enabled = true;
                 AddPrescription.Enabled = true;
                 StockControl.Enabled = true;
@@ -37,38 +38,38 @@ namespace WindowsFormsApplication1
         private void UserManagement_Click(object sender, EventArgs e)
         {
             UserManagement usermanagement = new UserManagement(parentlistholder);
-            usermanagement.Show();
+            usermanagement.Show(); //Open the user management form
         }
 
         private void StockControl_Click(object sender, EventArgs e)
         {
             StockControl stockcontrol = new StockControl(parentlistholder);
-            stockcontrol.Show();
+            stockcontrol.Show(); //Open the stock control form
         }
 
         private void ProcessPrescription_Click(object sender, EventArgs e)
         {
             Pharmacist process = new Pharmacist(parentlistholder);
-            process.Show();
+            process.Show(); //Open the process prescription form
         }
 
         private void AddPrescription_Click(object sender, EventArgs e)
         {
             AddPrescription addprescript = new AddPrescription(parentlistholder);
-            addprescript.Show();
+            addprescript.Show(); //Open the add prescription form
         }
 
         private void ManagementReport_Click(object sender, EventArgs e)
         {
             ManagementReport report = new ManagementReport(parentlistholder);
-            report.Show();
+            report.Show(); //Open the management report form
         }
 
         private void LogOut_Click(object sender, EventArgs e)
         {
             Login login = new Login();
-            login.Show();
-            this.Close();
+            login.Show(); //Re open the login form
+            this.Close(); //CLose this form
         }
     }
 }
