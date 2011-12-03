@@ -12,64 +12,83 @@ namespace WindowsFormsApplication1
 {
     public partial class AddDoctor : Form
     {
-        ListHolder parentlisthold;
+        ListHolder parentlisthold; //Class Version of ListHolder
+        List<Doctor> DoctorList = new List<Doctor>(); //List of Doctor Classes
+
+
         public AddDoctor(ListHolder listhold)
         {
             InitializeComponent();
-            listhold = parentlisthold;
+            listhold = parentlisthold; // Loads the Listholder in
         }
 
-        List<Doctor> DoctorList = new List<Doctor>();
+        #region XML I/O
 
+        /// <summary>
+        /// Reads in Doctors.XML
+        /// </summary>
         public void ReadOldFile()
         {
-            XmlDocument DoctorFile;
-            DoctorFile = new XmlDocument();
-            DoctorFile.Load("Doctors.xml");
-            XmlNodeList DoctorsName = DoctorFile.GetElementsByTagName("Name");
+            XmlDocument DoctorFile = new XmlDocument();
+            DoctorFile.Load("Doctors.xml"); //Loads Doctors XML file
+            XmlNodeList DoctorsName = DoctorFile.GetElementsByTagName("Name"); //Get a List of Doctors by Doctor Name
 
-
-            foreach (XmlNode node in DoctorsName)
+            foreach (XmlNode node in DoctorsName) //For Each Doctor in DoctorList
             {
-                string Name = node.InnerText;
-                Doctor doctor = new Doctor(Name);
-
-                DoctorList.Add(doctor);
+                string Name = node.InnerText; //Get Doctor Name
+                Doctor doctor = new Doctor(Name); //Create a New Class
+                DoctorList.Add(doctor); //Add Class to Class List
             }
         }
-
+        /// <summary>
+        /// Writes out Doctors XML file
+        /// </summary>
         public void WriteDoctors()
         {
-            using (XmlWriter writer = XmlWriter.Create("Doctors.xml"))
+            using (XmlWriter writer = XmlWriter.Create("Doctors.xml")) //Create Doctors XML File
             {
                 writer.WriteStartDocument();
-                writer.WriteStartElement("Doctors");
-                foreach (Doctor node in DoctorList)
+                writer.WriteStartElement("Doctors"); //Write XML parent Node
+                foreach (Doctor node in DoctorList) //For Each Doctor in DoctorList
                 {
-                    writer.WriteElementString("Name", node.GetDoctorName());
+                    writer.WriteElementString("Name", node.GetDoctorName()); //Write name of the doctor
                 }
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }
         }
-
+        #endregion
+        /// <summary>
+        /// Form Loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddDoctor_Load(object sender, EventArgs e)
         {
-            ReadOldFile();
+            ReadOldFile(); //Load Doctors
         }
 
+        /// <summary>
+        /// Add Doctor Button Clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddDoc_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "")
+            if (txtName.Text != "") //If there is something in Name Box
             {
-                Doctor newdoc = new Doctor(txtName.Text);
-                DoctorList.Add(newdoc);
-                WriteDoctors();
-                this.Hide();
+                Doctor newdoc = new Doctor(txtName.Text); //Create a New Class
+                DoctorList.Add(newdoc); //Add to the List
+                WriteDoctors(); //Write Out Doctors Including the New One
+                this.Hide(); //Close the Form
             }
 
         }
-
+        /// <summary>
+        /// Exit This Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();

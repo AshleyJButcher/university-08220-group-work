@@ -14,12 +14,7 @@ namespace WindowsFormsApplication1
         public ToPay(string value)
         {
             InitializeComponent();
-            label1.Text = "To Pay:" + value;
-        }
-
-        private void ToPay_Load(object sender, EventArgs e)
-        {
-
+            label1.Text = "To Pay:" + value; //Display Amount to Pay
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -43,6 +43,8 @@
             this.Clear = new System.Windows.Forms.Button();
             this.RemoveItem = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // AddItem
@@ -108,6 +110,9 @@
             // 
             // ItemView
             // 
+            this.ItemView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ItemName,
+            this.Quantity});
             this.ItemView.Location = new System.Drawing.Point(3, 148);
             this.ItemView.Name = "ItemView";
             this.ItemView.Size = new System.Drawing.Size(408, 251);
@@ -183,6 +188,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
+            // ItemName
+            // 
+            this.ItemName.Text = "Item Name";
+            this.ItemName.Width = 191;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Text = "Quantity";
+            this.Quantity.Width = 196;
+            // 
             // AddPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,5 +245,7 @@
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button RemoveItem;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ColumnHeader ItemName;
+        private System.Windows.Forms.ColumnHeader Quantity;
     }
 }
