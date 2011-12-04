@@ -13,12 +13,11 @@ namespace WindowsFormsApplication1
 {
     public partial class Pharmacist : Form 
     {
-        double SetPrice = 0.1;
-        ListViewItem listviewitem;		// Used for creating listview items.	
+        double SetPrice = 0.1; //Checks if its either 0 or 7.5
 
         ListHolder ParentListHolder;
-        string PatientName;
-        string DoctorName;
+        string PatientName; //Hold Patient Name
+        string DoctorName; //Holds Doctor Name
 
         List<Prescription> ToDoPrescriptList = new List<Prescription>();
         /// <summary>
@@ -264,7 +263,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void PrescriptionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            ListViewItem listviewitem;		// Used for creating listview items.	   
             listView1.Items.Clear(); //Reset old items
             if (PrescriptionList.SelectedIndex > -1)  //if something is selected
             {
