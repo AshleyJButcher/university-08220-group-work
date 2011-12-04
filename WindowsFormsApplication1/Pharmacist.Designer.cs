@@ -33,7 +33,11 @@
             this.DateIssue = new System.Windows.Forms.DateTimePicker();
             this.DateExpiry = new System.Windows.Forms.DateTimePicker();
             this.PharmaCombo = new System.Windows.Forms.ComboBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.PrescriptionItemView = new System.Windows.Forms.ListView();
+            this.Itemname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Pricev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ExpirationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Complete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,10 +53,6 @@
             this.Collecting = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.Itemname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Pricev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ExpirationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,19 +100,39 @@
             this.PharmaCombo.Size = new System.Drawing.Size(168, 21);
             this.PharmaCombo.TabIndex = 4;
             // 
-            // listView1
+            // PrescriptionItemView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.PrescriptionItemView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Itemname,
             this.Quantity,
             this.Pricev,
             this.ExpirationDate});
-            this.listView1.Location = new System.Drawing.Point(395, 206);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(454, 210);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.PrescriptionItemView.Location = new System.Drawing.Point(395, 206);
+            this.PrescriptionItemView.Name = "PrescriptionItemView";
+            this.PrescriptionItemView.Size = new System.Drawing.Size(454, 210);
+            this.PrescriptionItemView.TabIndex = 5;
+            this.PrescriptionItemView.UseCompatibleStateImageBehavior = false;
+            this.PrescriptionItemView.View = System.Windows.Forms.View.Details;
+            // 
+            // Itemname
+            // 
+            this.Itemname.Text = "Item Name";
+            this.Itemname.Width = 122;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Text = "Quantity";
+            this.Quantity.Width = 92;
+            // 
+            // Pricev
+            // 
+            this.Pricev.Text = "Price";
+            this.Pricev.Width = 130;
+            // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.Text = "Expiry Date";
+            this.ExpirationDate.Width = 118;
             // 
             // Complete
             // 
@@ -255,26 +275,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
-            // Itemname
-            // 
-            this.Itemname.Text = "Item Name";
-            this.Itemname.Width = 122;
-            // 
-            // Quantity
-            // 
-            this.Quantity.Text = "Quantity";
-            this.Quantity.Width = 92;
-            // 
-            // Pricev
-            // 
-            this.Pricev.Text = "Price";
-            this.Pricev.Width = 130;
-            // 
-            // ExpirationDate
-            // 
-            this.ExpirationDate.Text = "Expiry Date";
-            this.ExpirationDate.Width = 118;
-            // 
             // Pharmacist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +296,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Complete);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.PrescriptionItemView);
             this.Controls.Add(this.PharmaCombo);
             this.Controls.Add(this.DateExpiry);
             this.Controls.Add(this.DateIssue);
@@ -316,7 +316,7 @@
         private System.Windows.Forms.DateTimePicker DateIssue;
         private System.Windows.Forms.DateTimePicker DateExpiry;
         private System.Windows.Forms.ComboBox PharmaCombo;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView PrescriptionItemView;
         private System.Windows.Forms.Button Complete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
