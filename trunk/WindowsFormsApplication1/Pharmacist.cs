@@ -228,7 +228,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void FixedPrice_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count < 0) //if nothing is selected
+            if (PrescriptionItemView.SelectedItems.Count < 0) //if nothing is selected
             {
                 MessageBox.Show("Must Select a Prescription First"); //show error message
             }
@@ -245,7 +245,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Free_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count < 0) //if nothing is selected
+            if (PrescriptionItemView.SelectedItems.Count < 0) //if nothing is selected
             {
                 MessageBox.Show("Must Select a Prescription First"); //show error message
             }
@@ -264,7 +264,7 @@ namespace WindowsFormsApplication1
         private void PrescriptionList_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListViewItem listviewitem;		// Used for creating listview items.	   
-            listView1.Items.Clear(); //Reset old items
+            PrescriptionItemView.Items.Clear(); //Reset old items
             if (PrescriptionList.SelectedIndex > -1)  //if something is selected
             {
                 Prescription loadprescript = ToDoPrescriptList[PrescriptionList.SelectedIndex]; //load prescription class
@@ -278,7 +278,7 @@ namespace WindowsFormsApplication1
                     listviewitem.SubItems.Add(expiry); //add expiry date to list view
                     PatientName = loadprescript.GetPatientName(); //These are used later on for saving completed prescriptions
                     DoctorName = loadprescript.GetDoctorName();  //**
-                    this.listView1.Items.Add(listviewitem); //add to list view
+                    this.PrescriptionItemView.Items.Add(listviewitem); //add to list view
                 }
                 UpdateColumnSize(); //update column size
                 txtInstructions.Text = loadprescript.GetInstruction(); //set instructions
@@ -289,7 +289,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         public void UpdateColumnSize()
         {
-            foreach (ColumnHeader ch in this.listView1.Columns) //for every column in the list
+            foreach (ColumnHeader ch in this.PrescriptionItemView.Columns) //for every column in the list
             {
                 ch.Width = -2; //update column width
             }
@@ -302,19 +302,19 @@ namespace WindowsFormsApplication1
         private void Complete_Click(object sender, EventArgs e)
         {
             double TotalPrice = 0; //Prescription total
-            if (listView1.Items.Count > 0 && PharmaCombo.Text != null) //If Fields are filledin
+            if (PrescriptionItemView.Items.Count > 0 && PharmaCombo.Text != null) //If Fields are filledin
             {
-                for (int i = 0; i < listView1.Items.Count; i++) //for each of the items
+                for (int i = 0; i < PrescriptionItemView.Items.Count; i++) //for each of the items
                 {
                     #region Total Price
-                    string pricestring = listView1.Items[i].SubItems[2].Text.Substring(1); //get items price
-                    string quantitystring = listView1.Items[i].SubItems[1].Text; //get items quantity
+                    string pricestring = PrescriptionItemView.Items[i].SubItems[2].Text.Substring(1); //get items price
+                    string quantitystring = PrescriptionItemView.Items[i].SubItems[1].Text; //get items quantity
                     double price = double.Parse(pricestring); //Items Price
                     int quantity = int.Parse(quantitystring); //Items Quantity
                     price = price * quantity; //price is quantity times items price
                     TotalPrice += price; //add the price to the total price
                     #endregion
-                    DodgyBobStockControl.StockControl.DO("'" + listView1.Items[i].Text + "' consume " + quantity + " please"); //remove from stock
+                    DodgyBobStockControl.StockControl.DO("'" + PrescriptionItemView.Items[i].Text + "' consume " + quantity + " please"); //remove from stock
                 }
                 DodgyBobStockControl.StockControl.SAVE(); //Saves the stock update
                 #region Saving the data to a class
@@ -332,10 +332,10 @@ namespace WindowsFormsApplication1
                 tempprescrip.SetDateExpiry(DateExpiry.Text); //set date expiry
                 tempprescrip.SetDateIssued(DateIssue.Text); //set date issued
                 tempprescrip.SetPrice(TotalPrice.ToString()); //set price
-                for (int i = 0; i < listView1.Items.Count; i++) //for every single item
+                for (int i = 0; i < PrescriptionItemView.Items.Count; i++) //for every single item
                 {
-                    string itemnamestring = listView1.Items[i].Text; //get item name
-                    string quantitystring = listView1.Items[i].SubItems[1].Text; //get quantity
+                    string itemnamestring = PrescriptionItemView.Items[i].Text; //get item name
+                    string quantitystring = PrescriptionItemView.Items[i].SubItems[1].Text; //get quantity
                     tempprescrip.ItemName.Add(itemnamestring); //add item name
                     tempprescrip.Quantity.Add(quantitystring); //add quantity
                 }
@@ -357,7 +357,7 @@ namespace WindowsFormsApplication1
                 ToDoPrescriptList.Clear(); //Cleans the List
                 PrescriptionList.Items.Clear(); //Reset items in list
                 ReadToDoPrescriptionsFile(); //Reads the Prescriptions Back
-                listView1.Items.Clear(); //Reset items in list
+                PrescriptionItemView.Items.Clear(); //Reset items in list
                 txtInstructions.Text = ""; //set instruction to blank
                 Collecting.Checked = false; //reset collecting variable
 
@@ -450,7 +450,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Collecting_CheckedChanged(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count < 0) //if there is no prescription selected
+            if (PrescriptionItemView.SelectedItems.Count < 0) //if there is no prescription selected
             {
                 Collecting.Checked = false;  //set back to un-ticked
                 MessageBox.Show("Must Select a Prescription First"); //show message
