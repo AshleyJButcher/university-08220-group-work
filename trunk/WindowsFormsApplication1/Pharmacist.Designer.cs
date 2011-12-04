@@ -49,6 +49,10 @@
             this.Collecting = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.Itemname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Pricev = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ExpirationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +102,11 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Itemname,
+            this.Quantity,
+            this.Pricev,
+            this.ExpirationDate});
             this.listView1.Location = new System.Drawing.Point(395, 206);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(454, 210);
@@ -246,6 +255,26 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
+            // Itemname
+            // 
+            this.Itemname.Text = "Item Name";
+            this.Itemname.Width = 122;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Text = "Quantity";
+            this.Quantity.Width = 92;
+            // 
+            // Pricev
+            // 
+            this.Pricev.Text = "Price";
+            this.Pricev.Width = 130;
+            // 
+            // ExpirationDate
+            // 
+            this.ExpirationDate.Text = "Expiry Date";
+            this.ExpirationDate.Width = 118;
+            // 
             // Pharmacist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,5 +332,9 @@
         private System.Windows.Forms.CheckBox Collecting;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ColumnHeader Itemname;
+        private System.Windows.Forms.ColumnHeader Quantity;
+        private System.Windows.Forms.ColumnHeader Pricev;
+        private System.Windows.Forms.ColumnHeader ExpirationDate;
     }
 }
