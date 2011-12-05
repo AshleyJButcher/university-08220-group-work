@@ -21,6 +21,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             parentlistholder = holder; //Loads in ListHolder
             parentlistholder.Initialise(); // Loads in Dodgy Bobs Stock Control System
+            adddoc = new AddDoctor(parentlistholder); //Create a Instance of the AddDoctor Form
         }
 
         /// <summary>
@@ -30,7 +31,6 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void AddPrescription_Load(object sender, EventArgs e)
         {
-
             UpdateDoctorCombo(); //Update Doctors Drop Down Box
             DodgyBobStockControl.StockControl.LOAD(); //Load Stock Control Data
             ItemCombo.Items.AddRange(DodgyBobStockControl.StockControl.GET_ITEMS()); //Add Items to Item Drop Down
@@ -249,6 +249,7 @@ namespace WindowsFormsApplication1
                 writer.WriteEndDocument();
             }
         }
+        AddDoctor adddoc;
         /// <summary>
         /// Add New Doctor Button
         /// </summary>
@@ -256,7 +257,6 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void AddDoctor_Click(object sender, EventArgs e)
         {
-            AddDoctor adddoc = new AddDoctor(parentlistholder); //Create a Instance of the AddDoctor Form
             adddoc.Show(); //Show Form
         }
         /// <summary>
