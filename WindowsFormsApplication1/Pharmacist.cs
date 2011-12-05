@@ -65,10 +65,11 @@ namespace WindowsFormsApplication1
                     if (DodgyBobStockControl.StockControl.SAVE() == true) //Save stock update
                     {
                         ParentListHolder.FinalPrescriptionList.Remove(prescript); //Delete Prescription
+                        WritePrescription(); //this should remove any prescriptions that are out of date
+
                     }
                 }
             #endregion
-                WritePrescription(); //this should remove any prescriptions that are out of date
                 UpdatePrescriptionsToCollect(); //Update Prescription to Collect XML file
             }
         }
@@ -147,6 +148,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         public void ReadPrescriptionsFile()
         {
+            ParentListHolder.FinalPrescriptionList.Clear(); //Resets
             XmlDocument PrescriptionFile = new XmlDocument();
             PrescriptionFile.Load("CompletedPrescriptions.xml"); //Read XML file
             XmlNodeList Prescript = PrescriptionFile.GetElementsByTagName("Prescription"); //Creates a list of prescriptions
