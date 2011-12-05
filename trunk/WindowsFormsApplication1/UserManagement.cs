@@ -13,14 +13,16 @@ namespace WindowsFormsApplication1
     public partial class UserManagement : Form
     {
         ListHolder users;
+        ListHolder.Usertype usertype;
         /// <summary>
         /// Constructor Method
         /// </summary>
         /// <param name="listhold"></param>
-        public UserManagement(ListHolder listhold)
+        public UserManagement(ListHolder listhold, ListHolder.Usertype value)
         {
             InitializeComponent();
             users = listhold;
+            usertype = value;
         }
         /// <summary>
         /// Form Load
@@ -147,6 +149,17 @@ namespace WindowsFormsApplication1
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
             }
+        }
+        /// <summary>
+        /// Close Form Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Close_Click(object sender, EventArgs e)
+        {
+            MainForm form = new MainForm(usertype, users);
+            form.Show();
+            this.Close();
         }
     }
 }

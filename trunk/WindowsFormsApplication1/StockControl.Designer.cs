@@ -39,6 +39,7 @@
             this.DecreaseQuan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Closebtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtAmount
@@ -129,11 +130,22 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Doesn\'t Update \r\nExpiry Date";
             // 
+            // Closebtn
+            // 
+            this.Closebtn.Location = new System.Drawing.Point(480, 15);
+            this.Closebtn.Name = "Closebtn";
+            this.Closebtn.Size = new System.Drawing.Size(97, 27);
+            this.Closebtn.TabIndex = 8;
+            this.Closebtn.Text = "Close";
+            this.Closebtn.UseVisualStyleBackColor = true;
+            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click);
+            // 
             // StockControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 349);
+            this.Controls.Add(this.Closebtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DecreaseQuan);
@@ -164,5 +176,6 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader ExpiryDat;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Closebtn;
     }
 }

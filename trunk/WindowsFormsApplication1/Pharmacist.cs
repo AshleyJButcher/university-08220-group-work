@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1
         double SetPrice = 0.1; //Checks if its either 0 or 7.5
 
         ListHolder ParentListHolder;
+        ListHolder.Usertype usertype; //Users Type
         string PatientName; //Hold Patient Name
         string DoctorName; //Holds Doctor Name
 
@@ -24,11 +25,12 @@ namespace WindowsFormsApplication1
         /// Constructor Method
         /// </summary>
         /// <param name="listhold"></param>
-        public Pharmacist(ListHolder listhold)
+        public Pharmacist(ListHolder listhold, ListHolder.Usertype value)
         {
             InitializeComponent();
             ParentListHolder = listhold;
             ParentListHolder.Initialise(); //Loads Stock Control Method
+            usertype = value;
         }
     
         /// <summary>
@@ -441,6 +443,8 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Close_Click(object sender, EventArgs e)
         {
+            MainForm form = new MainForm(usertype, ParentListHolder);
+            form.Show();
             this.Close(); //close form
         }
         /// <summary>
