@@ -150,7 +150,15 @@
             this.label4.Size = new System.Drawing.Size(118, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Total of Each Item Sold";
-
+            // 
+            // Closebtn
+            // 
+            this.Closebtn.Location = new System.Drawing.Point(382, 72);
+            this.Closebtn.Name = "Closebtn";
+            this.Closebtn.Size = new System.Drawing.Size(105, 27);
+            this.Closebtn.TabIndex = 0;
+            this.Closebtn.Text = "Close";
+            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click);
             // 
             // ManagementReport
             // 

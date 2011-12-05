@@ -191,7 +191,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Close_Click(object sender, EventArgs e)
+        private void Closebtn_Click(object sender, EventArgs e)
         {
             MainForm form = new MainForm(usertype, prescriptions);
             form.Show();
