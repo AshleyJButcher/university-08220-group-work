@@ -155,11 +155,12 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Close_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MainForm form = new MainForm(usertype, users);
             form.Show();
             this.Close();
         }
+  
     }
 }

@@ -40,7 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Remove = new System.Windows.Forms.Button();
-            this.Closebtn = new System.Windows.Forms.Button();
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Add
@@ -138,15 +138,15 @@
             this.Remove.UseVisualStyleBackColor = true;
             this.Remove.Click += new System.EventHandler(this.Remove_Click);
             // 
-            // Close
+            // CloseBtn
             // 
-            this.Closebtn.Location = new System.Drawing.Point(351, 9);
-            this.Closebtn.Name = "Close";
-            this.Closebtn.Size = new System.Drawing.Size(99, 26);
-            this.Closebtn.TabIndex = 9;
-            this.Closebtn.Text = "Close";
-            this.Closebtn.UseVisualStyleBackColor = true;
-            this.Closebtn.Click += new System.EventHandler(this.Close_Click);
+            this.CloseBtn.Location = new System.Drawing.Point(363, 12);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(87, 24);
+            this.CloseBtn.TabIndex = 9;
+            this.CloseBtn.Text = "Close";
+            this.CloseBtn.UseVisualStyleBackColor = true;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // UserManagement
             // 
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 352);
             this.ControlBox = false;
-            this.Controls.Add(this.Closebtn);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.Remove);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -188,6 +188,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Remove;
-        private System.Windows.Forms.Button Closebtn;
+        private System.Windows.Forms.Button CloseBtn;
     }
 }
