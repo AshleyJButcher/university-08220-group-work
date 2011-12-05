@@ -86,7 +86,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Exit_Click(object sender, EventArgs e)
         {
-            this.Close(); //Close Form
+            Application.Exit(); //Close Form
         }
     
     }
