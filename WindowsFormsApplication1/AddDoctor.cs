@@ -80,9 +80,18 @@ namespace WindowsFormsApplication1
                 Doctor newdoc = new Doctor(txtName.Text); //Create a New Class
                 DoctorList.Add(newdoc); //Add to the List
                 WriteDoctors(); //Write Out Doctors Including the New One
-                this.Hide(); //Close the Form
+                CloseandCleanUp();
+
             }
 
+        }
+        /// <summary>
+        /// Closes the form and cleans up the variables
+        /// </summary>
+        private void CloseandCleanUp()
+        {
+            txtName.Text = ""; //Reset Text Box
+            this.Hide(); //Close the Form
         }
         /// <summary>
         /// Exit This Form
@@ -91,7 +100,7 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CloseandCleanUp();
         }
 
     }

@@ -12,14 +12,16 @@ namespace WindowsFormsApplication1
     public partial class StockControl : Form
     {
         ListHolder parentlistholder;
+        ListHolder.Usertype usertype; //Users Type
         /// <summary>
         /// Constructor Method
         /// </summary>
         /// <param name="hold"></param>
-        public StockControl(ListHolder hold)
+        public StockControl(ListHolder hold, ListHolder.Usertype value)
         {
             InitializeComponent();
             parentlistholder = hold;
+            usertype = value;
         }
         /// <summary>
         /// Form Load
@@ -139,6 +141,17 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Please Type a Value in Amount"); //Show Error Message
             }
+        }
+        /// <summary>
+        /// Close Form Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Closebtn_Click(object sender, EventArgs e)
+        {
+            MainForm form = new MainForm(usertype, parentlistholder);
+            form.Show();
+            this.Close();
         }
 
     }

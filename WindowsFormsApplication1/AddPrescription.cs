@@ -15,13 +15,15 @@ namespace WindowsFormsApplication1
     {
         ListHolder parentlistholder; //Parent List Holder
         List<Prescription> PrescriptList = new List<Prescription>();
+        ListHolder.Usertype usertype; //Users Type
 
-        public AddPrescription(ListHolder holder) //Constructor Method
+        public AddPrescription(ListHolder holder, ListHolder.Usertype value) //Constructor Method
         {
             InitializeComponent();
             parentlistholder = holder; //Loads in ListHolder
             parentlistholder.Initialise(); // Loads in Dodgy Bobs Stock Control System
             adddoc = new AddDoctor(parentlistholder); //Create a Instance of the AddDoctor Form
+            usertype = value;
         }
 
         /// <summary>
@@ -308,6 +310,8 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Close_Click(object sender, EventArgs e)
         {
+            MainForm form = new MainForm(usertype, parentlistholder);
+            form.Show();
             this.Close();
         }
         /// <summary>

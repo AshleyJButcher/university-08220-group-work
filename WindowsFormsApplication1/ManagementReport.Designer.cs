@@ -41,6 +41,7 @@
             this.ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.QuantitySold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
+            this.Closebtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstDayOfTheWeek
@@ -150,11 +151,23 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Total of Each Item Sold";
             // 
+            // Close
+            // 
+            this.Closebtn.Location = new System.Drawing.Point(403, 60);
+            this.Closebtn.Name = "Close";
+            this.Closebtn.Size = new System.Drawing.Size(84, 32);
+            this.Closebtn.TabIndex = 12;
+            this.Closebtn.Text = "Close";
+            this.Closebtn.UseVisualStyleBackColor = true;
+            this.Closebtn.Click += new System.EventHandler(this.Close_Click);
+            // 
             // ManagementReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 302);
+            this.ControlBox = false;
+            this.Controls.Add(this.Closebtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ItemQuantitySold);
             this.Controls.Add(this.DoctorSoldView);
@@ -189,5 +202,6 @@
         private System.Windows.Forms.ColumnHeader ItemName;
         private System.Windows.Forms.ColumnHeader QuantitySold;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Closebtn;
     }
 }

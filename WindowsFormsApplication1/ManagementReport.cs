@@ -13,15 +13,17 @@ namespace WindowsFormsApplication1
     public partial class ManagementReport : Form
     {
         ListHolder prescriptions;
+        ListHolder.Usertype usertype; //Users Type
         List<Prescription> PrescriptionsList = new List<Prescription>(); //List of Prescriptions
         /// <summary>
         /// Constructor Method
         /// </summary>
         /// <param name="listholder"></param>
-        public ManagementReport(ListHolder listholder)
+        public ManagementReport(ListHolder listholder, ListHolder.Usertype value)
         {
             InitializeComponent();
             prescriptions = listholder;
+            usertype = value;
 
         }
         /// <summary>
@@ -184,5 +186,17 @@ namespace WindowsFormsApplication1
             }
             TotalWeeklySales.Text = "£" +  String.Format("{0:0.00}", totalprice.ToString()); //Write out Total in £00.00 format
         }
+        /// <summary>
+        /// Close Button Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Close_Click(object sender, EventArgs e)
+        {
+            MainForm form = new MainForm(usertype, prescriptions);
+            form.Show();
+            this.Close();
+        }
+
     }
 }

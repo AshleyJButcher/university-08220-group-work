@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Remove = new System.Windows.Forms.Button();
+            this.Closebtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Add
@@ -137,11 +138,23 @@
             this.Remove.UseVisualStyleBackColor = true;
             this.Remove.Click += new System.EventHandler(this.Remove_Click);
             // 
+            // Close
+            // 
+            this.Closebtn.Location = new System.Drawing.Point(351, 9);
+            this.Closebtn.Name = "Close";
+            this.Closebtn.Size = new System.Drawing.Size(99, 26);
+            this.Closebtn.TabIndex = 9;
+            this.Closebtn.Text = "Close";
+            this.Closebtn.UseVisualStyleBackColor = true;
+            this.Closebtn.Click += new System.EventHandler(this.Close_Click);
+            // 
             // UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 352);
+            this.ControlBox = false;
+            this.Controls.Add(this.Closebtn);
             this.Controls.Add(this.Remove);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Remove;
+        private System.Windows.Forms.Button Closebtn;
     }
 }
