@@ -12,10 +12,23 @@ namespace WindowsFormsApplication1
     public partial class MainForm : Form
     {
         ListHolder parentlistholder;
+        ManagementReport report;
+        UserManagement usermanagement;
+        StockControl stockcontrol;
+        AddPrescription addprescript;
+        Pharmacist process;
+
         public MainForm(ListHolder.Usertype usertype, ListHolder mainlist)
         {
             InitializeComponent();
             parentlistholder = mainlist;
+            //defines the forms so only one instance can be opened
+            report = new ManagementReport(parentlistholder);
+            usermanagement = new UserManagement(parentlistholder);
+            stockcontrol = new StockControl(parentlistholder);
+            addprescript = new AddPrescription(parentlistholder);
+            process = new Pharmacist(parentlistholder);
+
             if (usertype == ListHolder.Usertype.Cashier) //If User is a Cashier
             {
                 AddPrescription.Enabled = true; //they can use the add prescription form
@@ -37,31 +50,26 @@ namespace WindowsFormsApplication1
 
         private void UserManagement_Click(object sender, EventArgs e)
         {
-            UserManagement usermanagement = new UserManagement(parentlistholder);
             usermanagement.Show(); //Open the user management form
         }
 
         private void StockControl_Click(object sender, EventArgs e)
         {
-            StockControl stockcontrol = new StockControl(parentlistholder);
             stockcontrol.Show(); //Open the stock control form
         }
 
         private void ProcessPrescription_Click(object sender, EventArgs e)
         {
-            Pharmacist process = new Pharmacist(parentlistholder);
             process.Show(); //Open the process prescription form
         }
 
         private void AddPrescription_Click(object sender, EventArgs e)
         {
-            AddPrescription addprescript = new AddPrescription(parentlistholder);
             addprescript.Show(); //Open the add prescription form
         }
 
         private void ManagementReport_Click(object sender, EventArgs e)
         {
-            ManagementReport report = new ManagementReport(parentlistholder);
             report.Show(); //Open the management report form
         }
 
