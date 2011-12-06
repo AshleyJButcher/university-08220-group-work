@@ -36,6 +36,8 @@
             this.ItemCombo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ItemView = new System.Windows.Forms.ListView();
+            this.ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Save = new System.Windows.Forms.Button();
             this.AddDoctor = new System.Windows.Forms.Button();
             this.txtInstructions = new System.Windows.Forms.TextBox();
@@ -43,15 +45,15 @@
             this.Clear = new System.Windows.Forms.Button();
             this.RemoveItem = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // AddItem
             // 
-            this.AddItem.Location = new System.Drawing.Point(322, 58);
+            this.AddItem.Location = new System.Drawing.Point(348, 221);
             this.AddItem.Name = "AddItem";
-            this.AddItem.Size = new System.Drawing.Size(75, 23);
+            this.AddItem.Size = new System.Drawing.Size(87, 23);
             this.AddItem.TabIndex = 0;
             this.AddItem.Text = "Add Item";
             this.AddItem.UseVisualStyleBackColor = true;
@@ -60,23 +62,23 @@
             // DoctorsCombo
             // 
             this.DoctorsCombo.FormattingEnabled = true;
-            this.DoctorsCombo.Location = new System.Drawing.Point(482, 22);
+            this.DoctorsCombo.Location = new System.Drawing.Point(91, 193);
             this.DoctorsCombo.Name = "DoctorsCombo";
-            this.DoctorsCombo.Size = new System.Drawing.Size(121, 21);
+            this.DoctorsCombo.Size = new System.Drawing.Size(251, 21);
             this.DoctorsCombo.TabIndex = 3;
             this.DoctorsCombo.Click += new System.EventHandler(this.DoctorsCombo_Click);
             // 
             // txtPatientName
             // 
-            this.txtPatientName.Location = new System.Drawing.Point(101, 26);
+            this.txtPatientName.Location = new System.Drawing.Point(89, 167);
             this.txtPatientName.Name = "txtPatientName";
-            this.txtPatientName.Size = new System.Drawing.Size(257, 20);
+            this.txtPatientName.Size = new System.Drawing.Size(346, 20);
             this.txtPatientName.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 32);
+            this.label1.Location = new System.Drawing.Point(12, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 5;
@@ -85,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(406, 27);
+            this.label4.Location = new System.Drawing.Point(10, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 13);
             this.label4.TabIndex = 9;
@@ -94,15 +96,15 @@
             // ItemCombo
             // 
             this.ItemCombo.FormattingEnabled = true;
-            this.ItemCombo.Location = new System.Drawing.Point(101, 58);
+            this.ItemCombo.Location = new System.Drawing.Point(89, 223);
             this.ItemCombo.Name = "ItemCombo";
-            this.ItemCombo.Size = new System.Drawing.Size(190, 21);
+            this.ItemCombo.Size = new System.Drawing.Size(253, 21);
             this.ItemCombo.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 66);
+            this.label5.Location = new System.Drawing.Point(44, 223);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 11;
@@ -113,80 +115,12 @@
             this.ItemView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ItemName,
             this.Quantity});
-            this.ItemView.Location = new System.Drawing.Point(3, 148);
+            this.ItemView.Location = new System.Drawing.Point(15, 253);
             this.ItemView.Name = "ItemView";
-            this.ItemView.Size = new System.Drawing.Size(408, 251);
+            this.ItemView.Size = new System.Drawing.Size(327, 217);
             this.ItemView.TabIndex = 12;
             this.ItemView.UseCompatibleStateImageBehavior = false;
             this.ItemView.View = System.Windows.Forms.View.Details;
-            // 
-            // Save
-            // 
-            this.Save.Location = new System.Drawing.Point(501, 109);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(83, 23);
-            this.Save.TabIndex = 13;
-            this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // AddDoctor
-            // 
-            this.AddDoctor.Location = new System.Drawing.Point(625, 22);
-            this.AddDoctor.Name = "AddDoctor";
-            this.AddDoctor.Size = new System.Drawing.Size(87, 24);
-            this.AddDoctor.TabIndex = 14;
-            this.AddDoctor.Text = "Add Doctor";
-            this.AddDoctor.UseVisualStyleBackColor = true;
-            this.AddDoctor.Click += new System.EventHandler(this.AddDoctor_Click);
-            // 
-            // txtInstructions
-            // 
-            this.txtInstructions.Location = new System.Drawing.Point(455, 165);
-            this.txtInstructions.Multiline = true;
-            this.txtInstructions.Name = "txtInstructions";
-            this.txtInstructions.Size = new System.Drawing.Size(303, 234);
-            this.txtInstructions.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(454, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Instructions for the Pharmacist";
-            // 
-            // Clear
-            // 
-            this.Clear.Location = new System.Drawing.Point(58, 110);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(83, 22);
-            this.Clear.TabIndex = 17;
-            this.Clear.Text = "Clear";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
-            // 
-            // RemoveItem
-            // 
-            this.RemoveItem.Location = new System.Drawing.Point(213, 110);
-            this.RemoveItem.Name = "RemoveItem";
-            this.RemoveItem.Size = new System.Drawing.Size(108, 22);
-            this.RemoveItem.TabIndex = 18;
-            this.RemoveItem.Text = "Remove Item";
-            this.RemoveItem.UseVisualStyleBackColor = true;
-            this.RemoveItem.Click += new System.EventHandler(this.RemoveItem_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(670, 109);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(88, 22);
-            this.btnClose.TabIndex = 19;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
             // ItemName
             // 
@@ -198,13 +132,92 @@
             this.Quantity.Text = "Quantity";
             this.Quantity.Width = 196;
             // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(348, 444);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(88, 23);
+            this.Save.TabIndex = 13;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // AddDoctor
+            // 
+            this.AddDoctor.Location = new System.Drawing.Point(348, 193);
+            this.AddDoctor.Name = "AddDoctor";
+            this.AddDoctor.Size = new System.Drawing.Size(87, 24);
+            this.AddDoctor.TabIndex = 14;
+            this.AddDoctor.Text = "Add Doctor";
+            this.AddDoctor.UseVisualStyleBackColor = true;
+            this.AddDoctor.Click += new System.EventHandler(this.AddDoctor_Click);
+            // 
+            // txtInstructions
+            // 
+            this.txtInstructions.Location = new System.Drawing.Point(15, 501);
+            this.txtInstructions.Multiline = true;
+            this.txtInstructions.Name = "txtInstructions";
+            this.txtInstructions.Size = new System.Drawing.Size(420, 111);
+            this.txtInstructions.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 485);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Instructions for the Pharmacist";
+            // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(348, 275);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(87, 22);
+            this.Clear.TabIndex = 17;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // RemoveItem
+            // 
+            this.RemoveItem.Location = new System.Drawing.Point(348, 250);
+            this.RemoveItem.Name = "RemoveItem";
+            this.RemoveItem.Size = new System.Drawing.Size(87, 22);
+            this.RemoveItem.TabIndex = 18;
+            this.RemoveItem.Text = "Remove Item";
+            this.RemoveItem.UseVisualStyleBackColor = true;
+            this.RemoveItem.Click += new System.EventHandler(this.RemoveItem_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(348, 473);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(88, 22);
+            this.btnClose.TabIndex = 19;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(423, 149);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(770, 411);
+            this.ClientSize = new System.Drawing.Size(455, 624);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.RemoveItem);
             this.Controls.Add(this.Clear);
@@ -221,8 +234,10 @@
             this.Controls.Add(this.DoctorsCombo);
             this.Controls.Add(this.AddItem);
             this.Name = "AddPrescription";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPrescription";
             this.Load += new System.EventHandler(this.AddPrescription_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +262,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ColumnHeader ItemName;
         private System.Windows.Forms.ColumnHeader Quantity;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

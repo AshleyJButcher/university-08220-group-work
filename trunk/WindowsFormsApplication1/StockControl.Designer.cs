@@ -38,15 +38,16 @@
             this.IncreaseQuan = new System.Windows.Forms.Button();
             this.DecreaseQuan = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Closebtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(30, 23);
+            this.txtAmount.Location = new System.Drawing.Point(61, 167);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(208, 20);
+            this.txtAmount.Size = new System.Drawing.Size(310, 20);
             this.txtAmount.TabIndex = 0;
             // 
             // ItemsListView
@@ -56,9 +57,9 @@
             this.Quantity,
             this.Price,
             this.ExpiryDat});
-            this.ItemsListView.Location = new System.Drawing.Point(12, 49);
+            this.ItemsListView.Location = new System.Drawing.Point(15, 198);
             this.ItemsListView.Name = "ItemsListView";
-            this.ItemsListView.Size = new System.Drawing.Size(476, 282);
+            this.ItemsListView.Size = new System.Drawing.Size(356, 282);
             this.ItemsListView.TabIndex = 1;
             this.ItemsListView.UseCompatibleStateImageBehavior = false;
             this.ItemsListView.View = System.Windows.Forms.View.Details;
@@ -66,12 +67,12 @@
             // ItemName
             // 
             this.ItemName.Text = "Item Name";
-            this.ItemName.Width = 109;
+            this.ItemName.Width = 127;
             // 
             // Quantity
             // 
             this.Quantity.Text = "Quantity";
-            this.Quantity.Width = 92;
+            this.Quantity.Width = 63;
             // 
             // Price
             // 
@@ -84,9 +85,9 @@
             // 
             // Restock
             // 
-            this.Restock.Location = new System.Drawing.Point(267, 13);
+            this.Restock.Location = new System.Drawing.Point(377, 162);
             this.Restock.Name = "Restock";
-            this.Restock.Size = new System.Drawing.Size(92, 30);
+            this.Restock.Size = new System.Drawing.Size(81, 29);
             this.Restock.TabIndex = 2;
             this.Restock.Text = "Restock";
             this.Restock.UseVisualStyleBackColor = true;
@@ -94,7 +95,7 @@
             // 
             // IncreaseQuan
             // 
-            this.IncreaseQuan.Location = new System.Drawing.Point(494, 193);
+            this.IncreaseQuan.Location = new System.Drawing.Point(377, 198);
             this.IncreaseQuan.Name = "IncreaseQuan";
             this.IncreaseQuan.Size = new System.Drawing.Size(81, 29);
             this.IncreaseQuan.TabIndex = 3;
@@ -104,7 +105,7 @@
             // 
             // DecreaseQuan
             // 
-            this.DecreaseQuan.Location = new System.Drawing.Point(494, 235);
+            this.DecreaseQuan.Location = new System.Drawing.Point(377, 233);
             this.DecreaseQuan.Name = "DecreaseQuan";
             this.DecreaseQuan.Size = new System.Drawing.Size(81, 31);
             this.DecreaseQuan.TabIndex = 4;
@@ -115,39 +116,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 7);
+            this.label1.Location = new System.Drawing.Point(15, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Amount";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(494, 164);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 26);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Doesn\'t Update \r\nExpiry Date";
-            // 
             // Closebtn
             // 
-            this.Closebtn.Location = new System.Drawing.Point(480, 15);
+            this.Closebtn.Location = new System.Drawing.Point(377, 451);
             this.Closebtn.Name = "Closebtn";
-            this.Closebtn.Size = new System.Drawing.Size(97, 27);
+            this.Closebtn.Size = new System.Drawing.Size(81, 29);
             this.Closebtn.TabIndex = 8;
             this.Closebtn.Text = "Close";
             this.Closebtn.UseVisualStyleBackColor = true;
             this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(423, 149);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
             // StockControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 349);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(466, 489);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Closebtn);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DecreaseQuan);
             this.Controls.Add(this.IncreaseQuan);
@@ -157,8 +159,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StockControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StockControl";
             this.Load += new System.EventHandler(this.StockControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +180,7 @@
         private System.Windows.Forms.ColumnHeader Quantity;
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.ColumnHeader ExpiryDat;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Closebtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -42,11 +42,13 @@
             this.QuantitySold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.Closebtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FirstDayOfTheWeek
             // 
-            this.FirstDayOfTheWeek.Location = new System.Drawing.Point(51, 26);
+            this.FirstDayOfTheWeek.Location = new System.Drawing.Point(16, 195);
             this.FirstDayOfTheWeek.Name = "FirstDayOfTheWeek";
             this.FirstDayOfTheWeek.Size = new System.Drawing.Size(131, 20);
             this.FirstDayOfTheWeek.TabIndex = 0;
@@ -55,16 +57,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 10);
+            this.label1.Location = new System.Drawing.Point(13, 173);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Please Choose the Start of the Week";
+            this.label1.Text = "Start of the Week";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(319, 8);
+            this.label3.Location = new System.Drawing.Point(336, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 4;
@@ -72,9 +74,9 @@
             // 
             // Generate
             // 
-            this.Generate.Location = new System.Drawing.Point(224, 15);
+            this.Generate.Location = new System.Drawing.Point(178, 173);
             this.Generate.Name = "Generate";
-            this.Generate.Size = new System.Drawing.Size(71, 31);
+            this.Generate.Size = new System.Drawing.Size(81, 42);
             this.Generate.TabIndex = 5;
             this.Generate.Text = "Generate";
             this.Generate.UseVisualStyleBackColor = true;
@@ -83,7 +85,7 @@
             // TotalWeeklySales
             // 
             this.TotalWeeklySales.AutoSize = true;
-            this.TotalWeeklySales.Location = new System.Drawing.Point(346, 32);
+            this.TotalWeeklySales.Location = new System.Drawing.Point(336, 195);
             this.TotalWeeklySales.Name = "TotalWeeklySales";
             this.TotalWeeklySales.Size = new System.Drawing.Size(46, 13);
             this.TotalWeeklySales.TabIndex = 6;
@@ -92,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 106);
+            this.label2.Location = new System.Drawing.Point(12, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 8;
@@ -103,9 +105,9 @@
             this.DoctorSoldView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Doctor,
             this.TotalSold});
-            this.DoctorSoldView.Location = new System.Drawing.Point(12, 122);
+            this.DoctorSoldView.Location = new System.Drawing.Point(12, 242);
             this.DoctorSoldView.Name = "DoctorSoldView";
-            this.DoctorSoldView.Size = new System.Drawing.Size(205, 168);
+            this.DoctorSoldView.Size = new System.Drawing.Size(179, 168);
             this.DoctorSoldView.TabIndex = 9;
             this.DoctorSoldView.UseCompatibleStateImageBehavior = false;
             this.DoctorSoldView.View = System.Windows.Forms.View.Details;
@@ -118,16 +120,16 @@
             // TotalSold
             // 
             this.TotalSold.Text = "Total Sold";
-            this.TotalSold.Width = 104;
+            this.TotalSold.Width = 78;
             // 
             // ItemQuantitySold
             // 
             this.ItemQuantitySold.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ItemName,
             this.QuantitySold});
-            this.ItemQuantitySold.Location = new System.Drawing.Point(234, 124);
+            this.ItemQuantitySold.Location = new System.Drawing.Point(215, 244);
             this.ItemQuantitySold.Name = "ItemQuantitySold";
-            this.ItemQuantitySold.Size = new System.Drawing.Size(263, 166);
+            this.ItemQuantitySold.Size = new System.Drawing.Size(226, 166);
             this.ItemQuantitySold.TabIndex = 10;
             this.ItemQuantitySold.UseCompatibleStateImageBehavior = false;
             this.ItemQuantitySold.View = System.Windows.Forms.View.Details;
@@ -135,17 +137,17 @@
             // ItemName
             // 
             this.ItemName.Text = "Item Name";
-            this.ItemName.Width = 125;
+            this.ItemName.Width = 144;
             // 
             // QuantitySold
             // 
             this.QuantitySold.Text = "Quantity Sold";
-            this.QuantitySold.Width = 97;
+            this.QuantitySold.Width = 78;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 106);
+            this.label4.Location = new System.Drawing.Point(212, 226);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 13);
             this.label4.TabIndex = 11;
@@ -153,20 +155,32 @@
             // 
             // Closebtn
             // 
-            this.Closebtn.Location = new System.Drawing.Point(382, 72);
+            this.Closebtn.Location = new System.Drawing.Point(351, 416);
             this.Closebtn.Name = "Closebtn";
-            this.Closebtn.Size = new System.Drawing.Size(105, 27);
-            this.Closebtn.TabIndex = 0;
+            this.Closebtn.Size = new System.Drawing.Size(90, 33);
+            this.Closebtn.TabIndex = 13;
             this.Closebtn.Text = "Close";
-            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click);
+            this.Closebtn.UseVisualStyleBackColor = true;
+            this.Closebtn.Click += new System.EventHandler(this.Closebtn_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(423, 149);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // ManagementReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 302);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(448, 455);
             this.ControlBox = false;
             this.Controls.Add(this.Closebtn);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ItemQuantitySold);
             this.Controls.Add(this.DoctorSoldView);
@@ -179,8 +193,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ManagementReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagementReport";
             this.Load += new System.EventHandler(this.ManagementReport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +217,7 @@
         private System.Windows.Forms.ColumnHeader ItemName;
         private System.Windows.Forms.ColumnHeader QuantitySold;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Closebtn;
     }
 }
