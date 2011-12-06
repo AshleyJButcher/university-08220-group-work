@@ -232,14 +232,24 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void FixedPrice_Click(object sender, EventArgs e)
         {
-            if (PrescriptionItemView.SelectedItems.Count < 0) //if nothing is selected
+            if (PrescriptionList.SelectedItems.Count <= 0) //if nothing is selected
             {
                 MessageBox.Show("Must Select a Prescription First"); //show error message
             }
             else
             {
+                if(SetPrice != 7.5)
+                {
                 SetPrice = 7.5; //set price to 7.50
                 MessageBox.Show("Patient will pay a fixed price of £7.50"); //show message
+                FixedPrice.Text = "Reset";
+                }
+                else
+                {
+                    SetPrice = 0.1; //Default Value
+                    MessageBox.Show("Price is Now Variable"); //Show Message
+                    FixedPrice.Text = "Fixed";
+                }
             }
         }
         /// <summary>
@@ -249,14 +259,24 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void Free_Click(object sender, EventArgs e)
         {
-            if (PrescriptionItemView.SelectedItems.Count < 0) //if nothing is selected
+            if (PrescriptionList.SelectedItems.Count <= 0) //if nothing is selected
             {
                 MessageBox.Show("Must Select a Prescription First"); //show error message
             }
             else
             {
-                SetPrice = 0.0; //set price to 0
-                MessageBox.Show("Patient will Not pay for this prescription"); //show message
+                if (SetPrice != 0.0)
+                {
+                    SetPrice = 0.0; //set price to 0
+                    MessageBox.Show("Patient will Not pay for this prescription"); //show message
+                    Free.Text = "Reset";
+                }
+                else
+                {
+                    SetPrice = 0.1; //Default Value
+                    MessageBox.Show("Price is Now Variable"); //Show Message
+                    Free.Text = "Free";
+                }
             }
         }
         #endregion
@@ -364,6 +384,7 @@ namespace WindowsFormsApplication1
                 PrescriptionItemView.Items.Clear(); //Reset items in list
                 txtInstructions.Text = ""; //set instruction to blank
                 Collecting.Checked = false; //reset collecting variable
+                SetPrice = 0.1; //Reset Fixed or Free
 
                 #endregion
                 if (File.Exists("CompletedPrescription.xml") == true) //if completed file exist

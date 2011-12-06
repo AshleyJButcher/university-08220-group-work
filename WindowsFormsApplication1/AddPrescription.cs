@@ -185,6 +185,7 @@ namespace WindowsFormsApplication1
                         ReadOldFile(); //If So Read Old Values First
                     WritePrescription(); //Write Out Everything
                     MessageBox.Show("Prescription Saved"); //Tell User Prescription has been saved
+                    ResetForm();
                 }
             }
             
@@ -323,7 +324,14 @@ namespace WindowsFormsApplication1
         {
             UpdateDoctorCombo(); //Update Doctor Drop Down
         }
-  
-   
+        /// <summary>
+        /// Resets the Form
+        /// </summary>
+        public void ResetForm()
+        {
+            txtPatientName.Text = "";
+            txtInstructions.Text = "";
+            ItemView.Items.Clear();
+        }
     }
 }

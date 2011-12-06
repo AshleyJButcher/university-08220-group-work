@@ -53,7 +53,9 @@
             this.Collecting = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FixedPrice
@@ -78,7 +80,7 @@
             // 
             // DateIssue
             // 
-            this.DateIssue.Location = new System.Drawing.Point(23, 21);
+            this.DateIssue.Location = new System.Drawing.Point(12, 187);
             this.DateIssue.Name = "DateIssue";
             this.DateIssue.Size = new System.Drawing.Size(192, 20);
             this.DateIssue.TabIndex = 2;
@@ -87,7 +89,7 @@
             // DateExpiry
             // 
             this.DateExpiry.Enabled = false;
-            this.DateExpiry.Location = new System.Drawing.Point(23, 71);
+            this.DateExpiry.Location = new System.Drawing.Point(224, 187);
             this.DateExpiry.Name = "DateExpiry";
             this.DateExpiry.Size = new System.Drawing.Size(197, 20);
             this.DateExpiry.TabIndex = 3;
@@ -95,7 +97,7 @@
             // PharmaCombo
             // 
             this.PharmaCombo.FormattingEnabled = true;
-            this.PharmaCombo.Location = new System.Drawing.Point(255, 152);
+            this.PharmaCombo.Location = new System.Drawing.Point(443, 186);
             this.PharmaCombo.Name = "PharmaCombo";
             this.PharmaCombo.Size = new System.Drawing.Size(168, 21);
             this.PharmaCombo.TabIndex = 4;
@@ -107,9 +109,9 @@
             this.Quantity,
             this.Pricev,
             this.ExpirationDate});
-            this.PrescriptionItemView.Location = new System.Drawing.Point(395, 206);
+            this.PrescriptionItemView.Location = new System.Drawing.Point(365, 319);
             this.PrescriptionItemView.Name = "PrescriptionItemView";
-            this.PrescriptionItemView.Size = new System.Drawing.Size(454, 210);
+            this.PrescriptionItemView.Size = new System.Drawing.Size(371, 210);
             this.PrescriptionItemView.TabIndex = 5;
             this.PrescriptionItemView.UseCompatibleStateImageBehavior = false;
             this.PrescriptionItemView.View = System.Windows.Forms.View.Details;
@@ -136,7 +138,7 @@
             // 
             // Complete
             // 
-            this.Complete.Location = new System.Drawing.Point(632, 149);
+            this.Complete.Location = new System.Drawing.Point(178, 547);
             this.Complete.Name = "Complete";
             this.Complete.Size = new System.Drawing.Size(85, 34);
             this.Complete.TabIndex = 6;
@@ -147,7 +149,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 133);
+            this.label1.Location = new System.Drawing.Point(456, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 7;
@@ -156,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 9);
+            this.label2.Location = new System.Drawing.Point(12, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 8;
@@ -165,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 55);
+            this.label3.Location = new System.Drawing.Point(221, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 9;
@@ -174,9 +176,9 @@
             // PrescriptionList
             // 
             this.PrescriptionList.FormattingEnabled = true;
-            this.PrescriptionList.Location = new System.Drawing.Point(191, 204);
+            this.PrescriptionList.Location = new System.Drawing.Point(178, 319);
             this.PrescriptionList.Name = "PrescriptionList";
-            this.PrescriptionList.Size = new System.Drawing.Size(172, 212);
+            this.PrescriptionList.Size = new System.Drawing.Size(149, 212);
             this.PrescriptionList.TabIndex = 10;
             this.PrescriptionList.SelectedIndexChanged += new System.EventHandler(this.PrescriptionList_SelectedIndexChanged);
             // 
@@ -184,7 +186,7 @@
             // 
             this.groupBox1.Controls.Add(this.FixedPrice);
             this.groupBox1.Controls.Add(this.Free);
-            this.groupBox1.Location = new System.Drawing.Point(549, 21);
+            this.groupBox1.Location = new System.Drawing.Point(224, 222);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(236, 70);
             this.groupBox1.TabIndex = 12;
@@ -194,7 +196,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(297, 28);
+            this.label4.Location = new System.Drawing.Point(12, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 13;
@@ -203,7 +205,7 @@
             // txtInstructions
             // 
             this.txtInstructions.AutoSize = true;
-            this.txtInstructions.Location = new System.Drawing.Point(297, 49);
+            this.txtInstructions.Location = new System.Drawing.Point(12, 244);
             this.txtInstructions.Name = "txtInstructions";
             this.txtInstructions.Size = new System.Drawing.Size(66, 13);
             this.txtInstructions.TabIndex = 14;
@@ -212,7 +214,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(188, 188);
+            this.label5.Location = new System.Drawing.Point(175, 303);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 13);
             this.label5.TabIndex = 15;
@@ -221,7 +223,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 133);
+            this.label6.Location = new System.Drawing.Point(9, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 13);
             this.label6.TabIndex = 16;
@@ -230,14 +232,14 @@
             // PrescriptionToCollect
             // 
             this.PrescriptionToCollect.FormattingEnabled = true;
-            this.PrescriptionToCollect.Location = new System.Drawing.Point(23, 149);
+            this.PrescriptionToCollect.Location = new System.Drawing.Point(12, 319);
             this.PrescriptionToCollect.Name = "PrescriptionToCollect";
             this.PrescriptionToCollect.Size = new System.Drawing.Size(147, 212);
             this.PrescriptionToCollect.TabIndex = 17;
             // 
             // Collected
             // 
-            this.Collected.Location = new System.Drawing.Point(53, 382);
+            this.Collected.Location = new System.Drawing.Point(15, 546);
             this.Collected.Name = "Collected";
             this.Collected.Size = new System.Drawing.Size(85, 34);
             this.Collected.TabIndex = 18;
@@ -248,7 +250,7 @@
             // Collecting
             // 
             this.Collecting.AutoSize = true;
-            this.Collecting.Location = new System.Drawing.Point(723, 97);
+            this.Collecting.Location = new System.Drawing.Point(472, 240);
             this.Collecting.Name = "Collecting";
             this.Collecting.Size = new System.Drawing.Size(62, 17);
             this.Collecting.TabIndex = 19;
@@ -259,7 +261,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(596, 101);
+            this.label7.Location = new System.Drawing.Point(469, 222);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 13);
             this.label7.TabIndex = 20;
@@ -267,7 +269,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(755, 149);
+            this.btnClose.Location = new System.Drawing.Point(651, 546);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(85, 33);
             this.btnClose.TabIndex = 21;
@@ -275,12 +277,24 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.Logo;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(167, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(423, 149);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
             // Pharmacist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 428);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(746, 590);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Collecting);
@@ -301,9 +315,11 @@
             this.Controls.Add(this.DateExpiry);
             this.Controls.Add(this.DateIssue);
             this.Name = "Pharmacist";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pharmacist";
             this.Load += new System.EventHandler(this.Pharmacist_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,5 +352,6 @@
         private System.Windows.Forms.ColumnHeader Quantity;
         private System.Windows.Forms.ColumnHeader Pricev;
         private System.Windows.Forms.ColumnHeader ExpirationDate;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
